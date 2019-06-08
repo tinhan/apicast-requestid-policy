@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Template
 metadata:
   name: "apicast-requestid-policy"
-message: "APIcast Requestid Policy"
+message: "APIcast generate request id Policy"
 objects:
 
 - apiVersion: v1
@@ -24,7 +24,7 @@ objects:
     output:
       to:
         kind: ImageStreamTag
-        name: apicast-policy:example
+        name: apicast-policy:requestid
     source:
       git:
         uri: https://github.com/tinhan/apicast-requestid-policy.git
@@ -62,7 +62,7 @@ objects:
       images:
         - from:
             kind: ImageStreamTag
-            name: 'apicast-policy:example'
+            name: 'apicast-policy:requestid'
           paths:
             # copy policy source code into the new image
             - destinationDir: policies
@@ -74,7 +74,6 @@ objects:
       dockerfile: |
         FROM scratch
         COPY . src
-
     strategy:
       dockerStrategy:
         from:
@@ -88,4 +87,4 @@ objects:
 parameters:
 - name: AMP_RELEASE
   required: true
-  description: AMP Version (eg. v3.5.0)
+  description: AMP Version (eg. 2.5.0-GA)
