@@ -24,7 +24,7 @@ objects:
     output:
       to:
         kind: ImageStreamTag
-        name: apicast-policy:requestid
+        name: apicast-policy:examle
     source:
       git:
         uri: https://github.com/tinhan/apicast-requestid-policy.git
@@ -62,7 +62,7 @@ objects:
       images:
         - from:
             kind: ImageStreamTag
-            name: 'apicast-policy:requestid'
+            name: 'apicast-policy:examle'
           paths:
             # copy policy source code into the new image
             - destinationDir: policies
