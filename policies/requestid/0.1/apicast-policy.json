@@ -1,20 +1,28 @@
 {
-	"$schema": "http://apicast.io/policy-v1/schema#manifest#",
-	"name": "Generate Request Id",
-	"summary": "Sets request Id to headers",
-	"description": ["This policy use to generage request id and add to http header.",
-		"It sets request headers based on the configuration.",
-		"And prints a log entry for each header set. "
-	],
-	"version": "1.0.0",
-	"configuration": {
-		"type": "object",
-		"properties": {
-			"name": {
-				"type": "string",
-				"description": "HTTP header name"
-			},
-			"required": ["name"]
-		}
-	}
+  "$schema": "http://apicast.io/policy-v1/schema#manifest#",
+  "name": "Generate Request Id",
+  "summary": "Sets request Id to headers",
+  "description": ["This policy use to generage request id and add to http header.",
+      "It sets request headers based on the configuration.",
+      "And prints a log entry for each header set. "
+  ],
+  "version": "0.1",
+  "configuration": {
+    "type": "object",
+    "properties": {
+      "set_header": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string",
+              "description": "HTTP header name"
+            }
+          },
+          "required": ["name"]
+        }
+      }
+    }
+  }
 }
