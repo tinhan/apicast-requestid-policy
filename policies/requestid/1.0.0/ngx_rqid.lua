@@ -1,4 +1,4 @@
-local _M = require('apicast.policy').new('Nginx Example', '1.0.0')
+local _M = require('apicast.policy').new('Gen RQ Id', '1.0.0')
 
 local new = _M.new
 
