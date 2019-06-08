@@ -1,56 +1,28 @@
 {
   "$schema": "http://apicast.io/policy-v1/schema#manifest#",
-  "name": "Header modification",
-  "summary": "Allows to include custom headers.",
+  "name": "Generate Request Id",
+  "summary": "Sets request Id to headers",
   "description":
-    ["This policy allows to include request id in http header"],
-  "version": "builtin",
+  ["This policy use to generage request id and add to http header.",
+    "It sets request headers based on the configuration.",
+    "And prints a log entry for each header set. " ],
+  "version": "1.0.0",
   "configuration": {
     "type": "object",
-    "definitions": {
-      "commands": {
-        "description": "List of operations to apply to the headers",
+    "properties": {
+      "set_header": {
         "type": "array",
         "items": {
           "type": "object",
           "properties": {
-            "op": {
-              "description": "Operation to be applied",
+            "name": {
               "type": "string",
-              "oneOf": [
-                {
-                  "enum": ["add"],
-                  "title": "Add a value to an existing header."
-                }
-              ]
-            },
-            "header": {
-              "description": "Header to be modified",
-              "type": "string"
-            },
-            "value": {
-              "description": "Value that will be added, add new to header.",
-              "type": "string"
-            },
-            "value_type": {
-              "description": "How to evaluate 'value'",
-              "type": "string",
-              "oneOf": [
-                {
-                  "enum": ["plain"],
-                  "title": "Evaluate 'value' as plain text."
-                }
-              ],
-              "default": "plain"
+              "description": "HTTP header name"
             }
           },
-          "required": ["op", "header"]
+          "required": ["name"]
         }
       }
-    },
-    "properties": {
-      "request": { "$ref": "#/definitions/commands" },
-      "response": { "$ref": "#/definitions/commands" }
     }
   }
 }
