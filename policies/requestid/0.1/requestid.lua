@@ -26,8 +26,8 @@ function _M.new(configuration)
   for _, header in ipairs(set_header) do
   --  local rqid = uuid
     insert(ops, function()
-      ngx.log(ngx.NOTICE, 'setting header: ', header.name, ' to: ', uuid)
-      ngx.req.set_header(header.name, uuid)
+      ngx.log(ngx.NOTICE, 'setting header: ', header.name, ' to: ', '12345')
+      ngx.req.set_header(header.name, '12345678')
     end)
   end
 
