@@ -1,10 +1,10 @@
 {
   "$schema": "http://apicast.io/policy-v1/schema#manifest#",
-  "name": "Ngx example policy",
-  "summary": "Sets request headers",
+  "name": "Generate request id policy",
+  "summary": "Sets request id to headers",
   "description":
-  ["This policy is meant to be just an example.",
-    "It sets request headers based on the configuration.",
+  ["This policy is use to generate UUID.",
+    "It sets request id to headers based on the configuration.",
     "And prints a log entry for each header set. " ],
   "version": "1.0.0",
   "configuration": {
