@@ -1,5 +1,3 @@
-[![CircleCI](https://circleci.com/gh/3scale/apicast-example-policy.svg?style=svg)](https://circleci.com/gh/3scale/apicast-example-policy)
-
 # APIcast Example Policy
 
 This policy is an example how to make custom policies for APIcast.
