@@ -21,13 +21,14 @@ function _M.new(configuration)
 
   local config = configuration or {}
   local set_header = config.set_header or {}
-  local rqid = uuid()
-    
+  
+  for _, header in ipairs(set_header) do
+    local rqid = uuid()
     insert(ops, function()
-      ngx.log(ngx.NOTICE, 'setting header: ', name, ' to: ',rqid)
-      ngx.req.set_header(name, rqid)
+      ngx.log(ngx.NOTICE, 'setting header: ', header.name, ' to: ', rqid)
+      ngx.req.set_header(header.name, rqid)
     end)
-
+  end
 
   self.ops = ops
 
