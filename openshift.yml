@@ -1,8 +1,8 @@
 apiVersion: v1
 kind: Template
 metadata:
-  name: "apicast-requestid-policy"
-message: "APIcast generate request id Policy"
+  name: "apicast-example-policy"
+message: "APIcast Example Policy"
 objects:
 
 - apiVersion: v1
@@ -19,15 +19,15 @@ objects:
     annotations:
     labels:
       app: apicast
-    name: apicast-requestid-policy
+    name: apicast-example-policy
   spec:
     output:
       to:
         kind: ImageStreamTag
-        name: apicast-policy:examle
+        name: apicast-policy:example
     source:
       git:
-        uri: https://github.com/tinhan/apicast-requestid-policy.git
+        uri: https://github.com/tinhan/apicast-example-policy.git
         ref: 'master'
       type: Git
     strategy:
@@ -62,11 +62,11 @@ objects:
       images:
         - from:
             kind: ImageStreamTag
-            name: 'apicast-policy:examle'
+            name: 'apicast-policy:example'
           paths:
             # copy policy source code into the new image
             - destinationDir: policies
-              sourcePath: /opt/app-root/policies/requestid
+              sourcePath: /opt/app-root/policies/example
             # copy also installed dependencies to the policy folder, so they are vendored
             # - destinationDir: policies/example/0.1/resty/
             #   sourcePath: /opt/app-root/src/lua_modules/share/lua/5.1/resty/iputils.lua
@@ -74,6 +74,7 @@ objects:
       dockerfile: |
         FROM scratch
         COPY . src
+
     strategy:
       dockerStrategy:
         from:
@@ -87,4 +88,4 @@ objects:
 parameters:
 - name: AMP_RELEASE
   required: true
-  description: AMP Version (eg. 2.5.0-GA)
+  description: AMP Version (eg. 2.2.0-GA)

@@ -1,3 +1,5 @@
+[![CircleCI](https://circleci.com/gh/3scale/apicast-example-policy.svg?style=svg)](https://circleci.com/gh/3scale/apicast-example-policy)
+
 # APIcast Example Policy
 
 This policy is an example how to make custom policies for APIcast.
@@ -8,7 +10,7 @@ This policy is an example how to make custom policies for APIcast.
 To install this on OpenShift you can use provided template:
 
 ```shell
-oc new-app -f openshift.yml --param AMP_RELEASE=2.5.0
+oc new-app -f openshift.yml --param AMP_RELEASE=2.2.0
 ```
 
 The template creates new ImageStream for images containing this policy.
