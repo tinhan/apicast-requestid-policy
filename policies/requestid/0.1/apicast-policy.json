@@ -6,6 +6,11 @@
   "version": "0.1",
   "configuration": {
     "type": "object",
-    "properties": { }
+    "properties": {
+      "gen_request_header": {
+        "description": "Http Header for Gennerate request id.",
+        "type": "string"
+      }
+    }
   }
 }

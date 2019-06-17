@@ -1,8 +1,8 @@
 apiVersion: v1
 kind: Template
 metadata:
-  name: "apicast-example-policy"
-message: "APIcast Example Policy"
+  name: "apicast-requestid-policy"
+message: "APIcast Requestid Policy"
 objects:
 
 - apiVersion: v1
@@ -19,7 +19,7 @@ objects:
     annotations:
     labels:
       app: apicast
-    name: apicast-example-policy
+    name: apicast-requestid-policy
   spec:
     output:
       to:
@@ -27,7 +27,7 @@ objects:
         name: apicast-policy:example
     source:
       git:
-        uri: https://github.com/tinhan/apicast-example-policy.git
+        uri: https://github.com/tinhan/apicast-requestid-policy.git
         ref: 'master'
       type: Git
     strategy:
@@ -66,7 +66,7 @@ objects:
           paths:
             # copy policy source code into the new image
             - destinationDir: policies
-              sourcePath: /opt/app-root/policies/example
+              sourcePath: /opt/app-root/policies/requestid
             # copy also installed dependencies to the policy folder, so they are vendored
             # - destinationDir: policies/example/0.1/resty/
             #   sourcePath: /opt/app-root/src/lua_modules/share/lua/5.1/resty/iputils.lua
