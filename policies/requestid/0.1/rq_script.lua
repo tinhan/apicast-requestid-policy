@@ -20,7 +20,7 @@ function _M.new(config)
   return self
 end
 
-function _M:rewrite()
+function _M:access()
   local config = configuration or {}
   local set_header = config.set_header or {}
   local random = math.random
@@ -48,7 +48,5 @@ function _M:body_filter()
     ngx.log(0, 'Out going response { ',header_val,' : ', rq_uid, ', { Body : ', resp , ' } }')
   
 end
-
-
 
 return _M
