@@ -20,7 +20,7 @@ function _M.new(config)
   return self
 end
 
-function _M:access()
+function _M:rewrite()
   local config = configuration or {}
   local set_header = config.set_header or {}
   local random = math.random
