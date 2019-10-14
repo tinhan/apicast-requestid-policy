@@ -1,5 +1,3 @@
-local setmetatable = setmetatable
-
 local _M = require('apicast.policy').new('LogingRqRs', '1.0')
 local ngx_var_new_header = ''
 
