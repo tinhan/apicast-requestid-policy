@@ -6,6 +6,6 @@
   "version": "1.0",
   "configuration": {
     "type": "object",
-    "properties": {}
+    "properties": { }
   }
 }
