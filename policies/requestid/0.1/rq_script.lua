@@ -25,7 +25,7 @@ function _M:rewrite()
   
 end
 
-function _M:log()
+function _M:post_action()
     local resp = ""
     local header_val = self.ngx_var_new_header
     local rq_uid = ngx.req.get_headers()[header_val]
