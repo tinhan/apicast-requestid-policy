@@ -7,7 +7,6 @@ local ngx_var_new_header = ''
 function _M.new(config)
   local self = new(config)
   local header_setval = config.gen_request_header
-  ngx.log(0, 'get vakue fron header', header_setval)
 
   if header_setval == nil then
     self.ngx_var_new_header = 'breadcrumbId'
@@ -15,7 +14,7 @@ function _M.new(config)
     self.ngx_var_new_header = header_setval
   end
   
-  ngx.log(0, 'get vakue fron header', ngx_var_new_header)
+  ngx.log(0, 'get value from header : ', ngx_var_new_header)
   
   return self
 end
