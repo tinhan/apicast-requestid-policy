@@ -66,7 +66,7 @@ objects:
           paths:
             # copy policy source code into the new image
             - destinationDir: policies
-              sourcePath: /opt/app-root/policies
+              sourcePath: /opt/app-root/policies/
       type: Dockerfile
       dockerfile: |
         FROM scratch
