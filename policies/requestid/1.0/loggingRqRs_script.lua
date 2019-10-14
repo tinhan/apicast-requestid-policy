@@ -1,4 +1,6 @@
 local _M = require('apicast.policy').new('LogingRqRs', '1.0')
+local new = _M.new
+
 local ngx_var_new_header = ''
 
 function _M.new(config)
