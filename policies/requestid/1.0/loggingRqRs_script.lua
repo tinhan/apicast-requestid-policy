@@ -1,13 +1,14 @@
 local setmetatable = setmetatable
 
 local _M = require('apicast.policy').new('LogingRqRs', '1.0')
+local mt = { __index = _M }
 local ngx_var_new_header = 'breadcrumbId'
 
-local mt = { __index = _M }
 
 function _M.new()
   return setmetatable({}, mt)
 end
+
 
 function _M:rewrite()
   local config = configuration or {}
