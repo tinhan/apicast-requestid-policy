@@ -1,22 +1,12 @@
+local setmetatable = setmetatable
 
-local _M = require('apicast.policy').new('Gen UUID', '0.1')
-local new = _M.new
+local _M = require('apicast.policy').new('Loging RqRs', '1.0')
+local ngx_var_new_header = 'breadcrumbId'
 
-local ngx_var_new_header = ''
+local mt = { __index = _M }
 
-function _M.new(config)
-  local self = new(config)
-  local header_setval = config.gen_request_header
-
-  if header_setval == nil then
-    self.ngx_var_new_header = 'breadcrumbId'
-  else
-    self.ngx_var_new_header = header_setval
-  end
-  
-  ngx.log(0, 'get value from header : ', ngx_var_new_header)
-  
-  return self
+function _M.new()
+  return setmetatable({}, mt)
 end
 
 function _M:rewrite()
@@ -35,7 +25,7 @@ function _M:rewrite()
   
 end
 
-function _M:body_filter()
+function _M:log()
     local resp = ""
     local header_val = self.ngx_var_new_header
     local rq_uid = ngx.req.get_headers()[header_val]
