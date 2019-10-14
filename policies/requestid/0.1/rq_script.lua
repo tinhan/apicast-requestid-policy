@@ -25,17 +25,16 @@ function _M:rewrite()
   
 end
 
-function _M:post_action()
+function _M:body_filter()
     local resp = ""
     local header_val = self.ngx_var_new_header
     local rq_uid = ngx.req.get_headers()[header_val]
     ngx.ctx.buffered = (ngx.ctx.buffered or "") .. string.sub(ngx.arg[1], 1, 1000)
     if ngx.arg[2] then
       resp = ngx.ctx.buffered
+      ngx.log(0, 'Out going response { ',header_val,' : ', rq_uid, ', { Body : ', resp , ' } }')
     end
 
-    ngx.log(0, 'Out going response { ',header_val,' : ', rq_uid, ', { Body : ', resp , ' } }')
-  
 end
 
 
