@@ -66,7 +66,14 @@ objects:
           paths:
             # copy policy source code into the new image
             - destinationDir: policies
-              sourcePath: /opt/app-root/policies/policies
+              sourcePath: /opt/app-root/policies/requestid 
+        - from:
+            kind: ImageStreamTag
+            name: 'apicast-policy:example'
+          paths:
+            # copy policy source code into the new image
+            - destinationDir: policies
+              sourcePath: /opt/app-root/policies/example 
       type: Dockerfile
       dockerfile: |
         FROM scratch
@@ -85,4 +92,4 @@ objects:
 parameters:
 - name: AMP_RELEASE
   required: true
-  description: AMP Version (eg. 2.2.0-GA)
+  description: AMP Version (eg. 2.5.0-GA)
