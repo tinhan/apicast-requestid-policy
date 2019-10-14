@@ -1,1 +1,1 @@
-return require('rq_script')
+return require('logging_script')
