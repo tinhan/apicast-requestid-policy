@@ -1,6 +1,6 @@
 {
   "$schema": "http://apicast.io/policy-v1/schema#manifest#",
-  "name": "Print Request and Response payload",
+  "name": "Print Request and Response payload Add version 1.0",
   "summary": "This is use for logging incomming and outgoing request.",
   "description": "This is use for logging incomming and outgoing request.",
   "version": "1.0",
